@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Extension Icons</title>
+</head>
+<body>
+    <canvas id="canvas" width="128" height="128"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            // Background circle
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2 - 2, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // White border
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // Text and arrow
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const fontSize = size / 6;
+            
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${fontSize}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Left "A"
+            ctx.fillText('A', centerX - size/5, centerY - size/20);
+            
+            // Right "中"
+            ctx.font = `bold ${fontSize*0.8}px Arial`;
+            ctx.fillText('中', centerX + size/5, centerY);
+            
+            // Arrow
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = size/40;
+            ctx.lineCap = 'round';
+            
+            // Arrow shaft
+            ctx.beginPath();
+            ctx.moveTo(centerX - size/15, centerY);
+            ctx.lineTo(centerX + size/15, centerY);
+            ctx.stroke();
+            
+            // Arrow head
+            ctx.beginPath();
+            ctx.moveTo(centerX + size/20, centerY - size/25);
+            ctx.lineTo(centerX + size/15, centerY);
+            ctx.lineTo(centerX + size/20, centerY + size/25);
+            ctx.stroke();
+            
+            // Globe
+            const globeY = centerY + size/4;
+            const globeRadius = size/8;
+            
+            ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+            ctx.lineWidth = size/60;
+            
+            // Globe circle
+            ctx.beginPath();
+            ctx.arc(centerX, globeY, globeRadius, 0, 2 * Math.PI);
+            ctx.stroke();
+            
+            // Globe lines
+            ctx.beginPath();
+            ctx.moveTo(centerX, globeY - globeRadius);
+            ctx.lineTo(centerX, globeY + globeRadius);
+            ctx.stroke();
+            
+            // Curved lines
+            ctx.beginPath();
+            ctx.moveTo(centerX - globeRadius, globeY);
+            ctx.quadraticCurveTo(centerX, globeY - globeRadius/2, centerX + globeRadius, globeY);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(centerX - globeRadius, globeY);
+            ctx.quadraticCurveTo(centerX, globeY + globeRadius/2, centerX + globeRadius, globeY);
+            ctx.stroke();
+            
+            return canvas;
+        }
+        
+        // Generate icons in different sizes
+        const sizes = [16, 48, 128];
+        sizes.forEach(size => {
+            const iconCanvas = createIcon(size);
+            const link = document.createElement('a');
+            link.download = `icon${size}.png`;
+            link.href = iconCanvas.toDataURL();
+            link.textContent = `Download ${size}x${size} icon`;
+            link.style.display = 'block';
+            link.style.margin = '10px';
+            document.body.appendChild(link);
+            
+            // Auto-click to download
+            setTimeout(() => link.click(), 100 * size);
+        });
+        
+        // Show preview
+        const previewCanvas = createIcon(128);
+        document.body.appendChild(previewCanvas);
+    </script>
+</body>
+</html>
