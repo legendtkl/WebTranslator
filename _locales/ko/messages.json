@@ -1,0 +1,194 @@
+{
+  "extensionName": {
+    "message": "WebTranslator",
+    "description": "확장 프로그램 이름"
+  },
+  "extensionDescription": {
+    "message": "AI 언어 모델을 사용하여 웹페이지를 번역합니다. Azure OpenAI, Doubao, Qwen, Kimi, GLM 등을 지원합니다.",
+    "description": "확장 프로그램 설명"
+  },
+  "settingsTitle": {
+    "message": "WebTranslator 설정",
+    "description": "설정 페이지 제목"
+  },
+  "providerConfiguration": {
+    "message": "LLM 제공업체 구성",
+    "description": "제공업체 구성 섹션 제목"
+  },
+  "activeProvider": {
+    "message": "활성 제공업체:",
+    "description": "활성 제공업체 선택기 라벨"
+  },
+  "translationSettings": {
+    "message": "번역 설정",
+    "description": "번역 설정 섹션 제목"
+  },
+  "defaultSourceLanguage": {
+    "message": "기본 원본 언어:",
+    "description": "기본 원본 언어 라벨"
+  },
+  "defaultTargetLanguage": {
+    "message": "기본 대상 언어:",
+    "description": "기본 대상 언어 라벨"
+  },
+  "autoDetect": {
+    "message": "자동 감지",
+    "description": "언어 자동 감지 옵션"
+  },
+  "saveSettings": {
+    "message": "설정 저장",
+    "description": "설정 저장 버튼 텍스트"
+  },
+  "testConnection": {
+    "message": "연결 테스트",
+    "description": "연결 테스트 버튼 텍스트"
+  },
+  "savingSettings": {
+    "message": "설정 저장 중...",
+    "description": "설정 저장 중 상태 메시지"
+  },
+  "settingsSaved": {
+    "message": "설정이 성공적으로 저장되었습니다!",
+    "description": "설정 저장 성공 메시지"
+  },
+  "connectionTestSuccessful": {
+    "message": "연결 테스트 성공!",
+    "description": "연결 테스트 성공 메시지"
+  },
+  "connectionTestFailed": {
+    "message": "연결 테스트 실패",
+    "description": "연결 테스트 실패 메시지"
+  },
+  "testingConnection": {
+    "message": "연결 테스트 중...",
+    "description": "연결 테스트 중 상태 메시지"
+  },
+  "endpointUrl": {
+    "message": "엔드포인트 URL",
+    "description": "엔드포인트 URL 필드 라벨"
+  },
+  "apiKey": {
+    "message": "API 키",
+    "description": "API 키 필드 라벨"
+  },
+  "model": {
+    "message": "모델",
+    "description": "모델 필드 라벨"
+  },
+  "maxTokens": {
+    "message": "최대 토큰",
+    "description": "최대 토큰 필드 라벨"
+  },
+  "temperature": {
+    "message": "온도",
+    "description": "온도 필드 라벨"
+  },
+  "apiVersion": {
+    "message": "API 버전",
+    "description": "API 버전 필드 라벨"
+  },
+  "customHeaders": {
+    "message": "사용자 정의 헤더 (JSON)",
+    "description": "사용자 정의 헤더 필드 라벨"
+  },
+  "required": {
+    "message": "*",
+    "description": "필수 필드 표시기"
+  },
+  "translating": {
+    "message": "번역 중...",
+    "description": "번역 진행 중 메시지"
+  },
+  "translationComplete": {
+    "message": "번역 완료",
+    "description": "번역 완료 메시지"
+  },
+  "translationError": {
+    "message": "번역 실패",
+    "description": "번역 오류 메시지"
+  },
+  "noProviderConfigured": {
+    "message": "구성된 제공업체가 없습니다. 설정에서 제공업체를 구성하세요.",
+    "description": "제공업체 구성되지 않음 오류 메시지"
+  },
+  "endpointRequired": {
+    "message": "엔드포인트와 API 키는 필수입니다",
+    "description": "필수 필드 유효성 검사 메시지"
+  },
+  "invalidJson": {
+    "message": "사용자 정의 헤더의 JSON이 유효하지 않습니다",
+    "description": "유효하지 않은 JSON 오류 메시지"
+  },
+  "chinese": {
+    "message": "중국어",
+    "description": "중국어 언어 이름"
+  },
+  "english": {
+    "message": "영어",
+    "description": "영어 언어 이름"
+  },
+  "spanish": {
+    "message": "스페인어",
+    "description": "스페인어 언어 이름"
+  },
+  "french": {
+    "message": "프랑스어",
+    "description": "프랑스어 언어 이름"
+  },
+  "german": {
+    "message": "독일어",
+    "description": "독일어 언어 이름"
+  },
+  "japanese": {
+    "message": "일본어",
+    "description": "일본어 언어 이름"
+  },
+  "korean": {
+    "message": "한국어",
+    "description": "한국어 언어 이름"
+  },
+  "providerAzureOpenAI": {
+    "message": "Azure OpenAI",
+    "description": "Azure OpenAI 제공업체 이름"
+  },
+  "providerDoubao": {
+    "message": "Doubao (豆包)",
+    "description": "Doubao 제공업체 이름"
+  },
+  "providerQwen": {
+    "message": "Qwen (千问)",
+    "description": "Qwen 제공업체 이름"
+  },
+  "providerKimi": {
+    "message": "Kimi (Moonshot AI)",
+    "description": "Kimi 제공업체 이름"
+  },
+  "providerGLM": {
+    "message": "GLM (智谱AI)",
+    "description": "GLM 제공업체 이름"
+  },
+  "from": {
+    "message": "원본:",
+    "description": "팝업의 원본 언어 라벨"
+  },
+  "to": {
+    "message": "대상:",
+    "description": "팝업의 대상 언어 라벨"
+  },
+  "translatePage": {
+    "message": "페이지 번역",
+    "description": "페이지 번역 버튼 텍스트"
+  },
+  "restoreOriginal": {
+    "message": "원본 복원",
+    "description": "원본 페이지 복원 버튼 텍스트"
+  },
+  "settings": {
+    "message": "설정",
+    "description": "설정 버튼 텍스트"
+  },
+  "retry": {
+    "message": "다시 시도",
+    "description": "다시 시도 버튼 텍스트"
+  }
+}

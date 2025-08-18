@@ -1,0 +1,146 @@
+{
+  "extensionName": {
+    "message": "WebTranslator",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Traduce páginas web usando modelos de lenguaje IA. Compatible con Azure OpenAI, Doubao, Qwen, Kimi, GLM y más.",
+    "description": "Descripción de la extensión"
+  },
+  "settingsTitle": {
+    "message": "Configuración de WebTranslator",
+    "description": "Título de la página de configuración"
+  },
+  "providerConfiguration": {
+    "message": "Configuración del Proveedor LLM",
+    "description": "Título de la sección de configuración del proveedor"
+  },
+  "activeProvider": {
+    "message": "Proveedor Activo:",
+    "description": "Etiqueta para el selector de proveedor activo"
+  },
+  "translationSettings": {
+    "message": "Configuración de Traducción",
+    "description": "Título de la sección de configuración de traducción"
+  },
+  "defaultSourceLanguage": {
+    "message": "Idioma de Origen Predeterminado:",
+    "description": "Etiqueta para el idioma de origen predeterminado"
+  },
+  "defaultTargetLanguage": {
+    "message": "Idioma de Destino Predeterminado:",
+    "description": "Etiqueta para el idioma de destino predeterminado"
+  },
+  "autoDetect": {
+    "message": "Detección Automática",
+    "description": "Opción de detección automática de idioma"
+  },
+  "saveSettings": {
+    "message": "Guardar Configuración",
+    "description": "Texto del botón guardar configuración"
+  },
+  "testConnection": {
+    "message": "Probar Conexión",
+    "description": "Texto del botón probar conexión"
+  },
+  "savingSettings": {
+    "message": "Guardando configuración...",
+    "description": "Mensaje de estado al guardar configuración"
+  },
+  "settingsSaved": {
+    "message": "¡Configuración guardada exitosamente!",
+    "description": "Mensaje de éxito al guardar configuración"
+  },
+  "connectionTestSuccessful": {
+    "message": "¡Prueba de conexión exitosa!",
+    "description": "Mensaje de éxito de la prueba de conexión"
+  },
+  "connectionTestFailed": {
+    "message": "Falló la prueba de conexión",
+    "description": "Mensaje de fallo de la prueba de conexión"
+  },
+  "testingConnection": {
+    "message": "Probando conexión...",
+    "description": "Mensaje de estado al probar conexión"
+  },
+  "endpointUrl": {
+    "message": "URL del Endpoint",
+    "description": "Etiqueta para el campo URL del endpoint"
+  },
+  "apiKey": {
+    "message": "Clave API",
+    "description": "Etiqueta para el campo clave API"
+  },
+  "model": {
+    "message": "Modelo",
+    "description": "Etiqueta para el campo modelo"
+  },
+  "maxTokens": {
+    "message": "Tokens Máximos",
+    "description": "Etiqueta para el campo tokens máximos"
+  },
+  "temperature": {
+    "message": "Temperatura",
+    "description": "Etiqueta para el campo temperatura"
+  },
+  "apiVersion": {
+    "message": "Versión API",
+    "description": "Etiqueta para el campo versión API"
+  },
+  "customHeaders": {
+    "message": "Encabezados Personalizados (JSON)",
+    "description": "Etiqueta para el campo encabezados personalizados"
+  },
+  "required": {
+    "message": "*",
+    "description": "Indicador de campo requerido"
+  },
+  "chinese": {
+    "message": "Chino",
+    "description": "Nombre del idioma chino"
+  },
+  "english": {
+    "message": "Inglés",
+    "description": "Nombre del idioma inglés"
+  },
+  "spanish": {
+    "message": "Español",
+    "description": "Nombre del idioma español"
+  },
+  "french": {
+    "message": "Francés",
+    "description": "Nombre del idioma francés"
+  },
+  "german": {
+    "message": "Alemán",
+    "description": "Nombre del idioma alemán"
+  },
+  "japanese": {
+    "message": "Japonés",
+    "description": "Nombre del idioma japonés"
+  },
+  "korean": {
+    "message": "Coreano",
+    "description": "Nombre del idioma coreano"
+  },
+  "providerAzureOpenAI": {
+    "message": "Azure OpenAI",
+    "description": "Nombre del proveedor Azure OpenAI"
+  },
+  "providerDoubao": {
+    "message": "Doubao (豆包)",
+    "description": "Nombre del proveedor Doubao"
+  },
+  "providerQwen": {
+    "message": "Qwen (千问)",
+    "description": "Nombre del proveedor Qwen"
+  },
+  "providerKimi": {
+    "message": "Kimi (Moonshot AI)",
+    "description": "Nombre del proveedor Kimi"
+  },
+  "providerGLM": {
+    "message": "GLM (智谱AI)",
+    "description": "Nombre del proveedor GLM"
+  }
+}

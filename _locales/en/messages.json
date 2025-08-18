@@ -1,0 +1,198 @@
+{
+  "extensionName": {
+    "message": "WebTranslator",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Translate web pages using AI language models. Supports Azure OpenAI, Doubao, Qwen, Kimi, GLM and more.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "WebTranslator Settings",
+    "description": "Title of the settings page"
+  },
+  "providerConfiguration": {
+    "message": "LLM Provider Configuration",
+    "description": "Provider configuration section title"
+  },
+  "activeProvider": {
+    "message": "Active Provider:",
+    "description": "Label for active provider selector"
+  },
+  "translationSettings": {
+    "message": "Translation Settings",
+    "description": "Translation settings section title"
+  },
+  "defaultSourceLanguage": {
+    "message": "Default Source Language:",
+    "description": "Label for default source language"
+  },
+  "defaultTargetLanguage": {
+    "message": "Default Target Language:",
+    "description": "Label for default target language"
+  },
+  "autoDetect": {
+    "message": "Auto Detect",
+    "description": "Auto detect language option"
+  },
+  "saveSettings": {
+    "message": "Save Settings",
+    "description": "Save settings button text"
+  },
+  "testConnection": {
+    "message": "Test Connection",
+    "description": "Test connection button text"
+  },
+  "savingSettings": {
+    "message": "Saving settings...",
+    "description": "Saving settings status message"
+  },
+  "settingsSaved": {
+    "message": "Settings saved successfully!",
+    "description": "Settings saved success message"
+  },
+  "connectionTestSuccessful": {
+    "message": "Connection test successful!",
+    "description": "Connection test success message"
+  },
+  "connectionTestFailed": {
+    "message": "Connection test failed",
+    "description": "Connection test failed message"
+  },
+  "testingConnection": {
+    "message": "Testing connection...",
+    "description": "Testing connection status message"
+  },
+  "endpointUrl": {
+    "message": "Endpoint URL",
+    "description": "Label for endpoint URL field"
+  },
+  "apiKey": {
+    "message": "API Key",
+    "description": "Label for API key field"
+  },
+  "model": {
+    "message": "Model",
+    "description": "Label for model field"
+  },
+  "maxTokens": {
+    "message": "Max Tokens",
+    "description": "Label for max tokens field"
+  },
+  "temperature": {
+    "message": "Temperature",
+    "description": "Label for temperature field"
+  },
+  "apiVersion": {
+    "message": "API Version",
+    "description": "Label for API version field"
+  },
+  "customHeaders": {
+    "message": "Custom Headers (JSON)",
+    "description": "Label for custom headers field"
+  },
+  "required": {
+    "message": "*",
+    "description": "Required field indicator"
+  },
+  "translating": {
+    "message": "Translating...",
+    "description": "Translation in progress message"
+  },
+  "translationComplete": {
+    "message": "Translation complete",
+    "description": "Translation completed message"
+  },
+  "translationError": {
+    "message": "Translation failed",
+    "description": "Translation error message"
+  },
+  "noProviderConfigured": {
+    "message": "No provider configured. Please configure a provider in settings.",
+    "description": "No provider configured error message"
+  },
+  "endpointRequired": {
+    "message": "Endpoint and API key are required",
+    "description": "Required field validation message"
+  },
+  "invalidJson": {
+    "message": "Invalid JSON in custom headers",
+    "description": "Invalid JSON error message"
+  },
+  "chinese": {
+    "message": "Chinese",
+    "description": "Chinese language name"
+  },
+  "english": {
+    "message": "English",
+    "description": "English language name"
+  },
+  "spanish": {
+    "message": "Spanish",
+    "description": "Spanish language name"
+  },
+  "french": {
+    "message": "French",
+    "description": "French language name"
+  },
+  "german": {
+    "message": "German",
+    "description": "German language name"
+  },
+  "japanese": {
+    "message": "Japanese",
+    "description": "Japanese language name"
+  },
+  "korean": {
+    "message": "Korean",
+    "description": "Korean language name"
+  },
+  "providerAzureOpenAI": {
+    "message": "Azure OpenAI",
+    "description": "Azure OpenAI provider name"
+  },
+  "providerDoubao": {
+    "message": "Doubao (豆包)",
+    "description": "Doubao provider name"
+  },
+  "providerQwen": {
+    "message": "Qwen (千问)",
+    "description": "Qwen provider name"
+  },
+  "providerKimi": {
+    "message": "Kimi (Moonshot AI)",
+    "description": "Kimi provider name"
+  },
+  "providerGLM": {
+    "message": "GLM (智谱AI)",
+    "description": "GLM provider name"
+  },
+  "from": {
+    "message": "From:",
+    "description": "Source language label in popup"
+  },
+  "to": {
+    "message": "To:",
+    "description": "Target language label in popup"
+  },
+  "translatePage": {
+    "message": "Translate Page",
+    "description": "Translate page button text"
+  },
+  "restoreOriginal": {
+    "message": "Restore Original",
+    "description": "Restore original page button text"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Settings button text"
+  },
+  "retry": {
+    "message": "Retry",
+    "description": "Retry button text"
+  },
+  "modelInputHint": {
+    "message": "Enter model name manually for maximum flexibility",
+    "description": "Hint text for manual model input"
+  }
+}

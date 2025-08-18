@@ -114,6 +114,14 @@ body {
   font-family: monospace;
 }
 
+.field-description {
+  display: block;
+  color: #6c757d;
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
 .actions {
   display: flex;
   gap: 12px;

@@ -1,8 +1,21 @@
 // Background service worker for WebTranslator
 
 import { AzureOpenAIProvider } from './llm-providers/azure-openai.js';
+import { DoubaoProvider } from './llm-providers/doubao.js';
+import { QwenProvider } from './llm-providers/qwen.js';
+import { KimiProvider } from './llm-providers/kimi.js';
+import { GLMProvider } from './llm-providers/glm.js';
 
 let currentProvider = null;
+
+// Provider registry
+const PROVIDERS = {
+  'azure-openai': AzureOpenAIProvider,
+  'doubao': DoubaoProvider,
+  'qwen': QwenProvider,
+  'kimi': KimiProvider,
+  'glm': GLMProvider
+};
 
 // Initialize the provider when extension starts
 chrome.runtime.onStartup.addListener(async () => {
@@ -38,8 +51,13 @@ async function initializeProvider() {
     });
     
     if (providerConfig && providerConfig.enabled) {
-      currentProvider = new AzureOpenAIProvider(providerConfig);
-      console.log('WebTranslator Service Worker: Provider initialized successfully');
+      const ProviderClass = PROVIDERS[activeProviderName];
+      if (ProviderClass) {
+        currentProvider = new ProviderClass(providerConfig);
+        console.log('WebTranslator Service Worker: Provider initialized successfully');
+      } else {
+        console.log('WebTranslator Service Worker: Unknown provider:', activeProviderName);
+      }
     } else {
       console.log('WebTranslator Service Worker: No valid provider config found');
     }
@@ -58,6 +76,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'updateProvider') {
     updateProvider(message.config);
     sendResponse({ status: 'updated' });
+  }
+  
+  if (message.action === 'reinitializeProvider') {
+    initializeProvider().then(() => {
+      sendResponse({ status: 'reinitialized' });
+    }).catch(error => {
+      sendResponse({ status: 'error', error: error.message });
+    });
+    return true; // Keep channel open for async response
+  }
+  
+  if (message.action === 'testConnection') {
+    testConnection(sendResponse);
+    return true; // Keep channel open for async response
   }
 });
 
@@ -105,8 +137,44 @@ async function handleTranslation(message, sendResponse) {
   }
 }
 
+async function testConnection(sendResponse) {
+  try {
+    if (!currentProvider) {
+      throw new Error('No provider configured');
+    }
+    
+    console.log('WebTranslator Service Worker: Testing connection...');
+    
+    // Test with a simple translation
+    const testTexts = ['Hello'];
+    const result = await currentProvider.translate(testTexts, 'en', 'zh');
+    
+    if (result && result.translations && result.translations.length > 0) {
+      console.log('WebTranslator Service Worker: Connection test successful');
+      sendResponse({
+        success: true,
+        provider: currentProvider.getName(),
+        testTranslation: result.translations[0]
+      });
+    } else {
+      throw new Error('Invalid response from provider');
+    }
+    
+  } catch (error) {
+    console.error('WebTranslator Service Worker: Connection test failed:', error);
+    sendResponse({
+      success: false,
+      error: error.message
+    });
+  }
+}
+
 function updateProvider(config) {
-  if (config.provider === 'azure-openai') {
-    currentProvider = new AzureOpenAIProvider(config);
+  const ProviderClass = PROVIDERS[config.provider];
+  if (ProviderClass) {
+    currentProvider = new ProviderClass(config);
+    console.log('WebTranslator Service Worker: Provider updated to', config.provider);
+  } else {
+    console.error('WebTranslator Service Worker: Unknown provider:', config.provider);
   }
 }

@@ -6,9 +6,11 @@
 
 **A powerful Chrome extension for real-time webpage translation using multiple LLM providers**
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Available-brightgreen)](https://chrome.google.com/webstore)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Ready-brightgreen)](https://chrome.google.com/webstore)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/bytedance/WebTranslator)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green)](LICENSE)
+[![Multi-Provider](https://img.shields.io/badge/Providers-5%20LLMs-orange)](README.md#configuration)
+[![i18n](https://img.shields.io/badge/Languages-5-purple)](README.md#features)
 
 [English](#english) | [中文](#中文)
 
@@ -18,18 +20,29 @@
 
 ### Overview
 
-WebTranslator is a Chrome browser extension that provides seamless webpage translation powered by advanced Large Language Models (LLM). It supports multiple translation providers including Azure OpenAI, and offers intelligent bilingual display with context preservation.
+WebTranslator is a Chrome browser extension that provides seamless webpage translation powered by advanced Large Language Models (LLM). It supports multiple Chinese and international LLM providers including Azure OpenAI, Doubao, Qwen, Kimi, and GLM, with full internationalization support and intelligent bilingual display.
+
+### 🆕 Latest Updates (v1.0.0)
+
+- **✅ Multi-Provider Support**: Added support for 4 major Chinese LLM providers
+- **✅ Complete Internationalization**: UI now available in 5 languages
+- **✅ Manual Model Input**: Flexible model configuration for future compatibility
+- **✅ Native-Quality Translation**: Optimized prompts for natural translations
+- **✅ Smart Content Detection**: Improved accuracy in identifying translatable content
+- **✅ Chrome Web Store Ready**: Fully compliant with Chrome Web Store requirements
 
 ### ✨ Features
 
 - **🌐 Real-time Translation**: Translate entire webpages while preserving layout and formatting
-- **🤖 Multiple LLM Providers**: Support for Azure OpenAI with plans for additional providers
-- **📱 Bilingual Display**: Shows original and translated content side-by-side
+- **🤖 Multiple LLM Providers**: Support for Azure OpenAI, Doubao (豆包), Qwen (千问), Kimi, GLM (智谱AI)
+- **🌍 Multi-language Support**: Interface available in English, Chinese, Spanish, Japanese, and Korean
+- **📱 Bilingual Display**: Shows original and translated content side-by-side with intelligent formatting
 - **🎯 Smart Content Detection**: Automatically identifies and translates meaningful content while avoiding code blocks and navigation elements
-- **⚡ Progressive Translation**: Renders translations in batches for better user experience
-- **🔄 Restore Functionality**: Easily switch back to original content
-- **🛠️ Flexible Configuration**: Customizable API settings and translation preferences
-- **🎨 Clean UI**: Modern, intuitive interface with gradient design
+- **⚡ Progressive Translation**: Renders translations in batches for responsive user experience
+- **🔄 Restore Functionality**: Easily switch back to original content with one click
+- **🛠️ Flexible Configuration**: Manual model input for maximum compatibility with new models
+- **🎨 Modern UI**: Clean, intuitive interface with gradient design and localized text
+- **🔧 Native Speaker Quality**: Optimized prompts for natural, native-like translations
 
 ### 🖼️ Screenshots
 
@@ -83,16 +96,30 @@ The extension provides bilingual display showing both original and translated co
 
 ### ⚙️ Configuration
 
-#### Azure OpenAI Setup
+#### LLM Provider Setup
 1. Click the extension icon and select "Settings"
-2. Choose "Azure OpenAI" as your provider
-3. Configure the following:
-   - **Endpoint URL**: Your Azure OpenAI endpoint
-   - **API Version**: `2024-03-01-preview` (recommended)
-   - **API Key**: Your Azure OpenAI API key
-   - **Model**: `gpt-5` or your preferred model
-   - **Max Tokens**: `5000` (recommended)
-   - **Custom Headers**: Optional JSON for additional headers
+2. Choose your preferred provider from the dropdown:
+   - **Azure OpenAI**: Enterprise-grade OpenAI service
+   - **Doubao (豆包)**: ByteDance's LLM service
+   - **Qwen (千问)**: Alibaba Cloud's LLM service
+   - **Kimi**: Moonshot AI's LLM service
+   - **GLM (智谱AI)**: Zhipu AI's LLM service
+
+#### Configuration Parameters
+Each provider requires specific configuration:
+
+**Common Fields:**
+- **Endpoint URL**: Provider's API endpoint
+- **API Key**: Your authentication key
+- **Model**: Model name (manually entered for flexibility)
+- **Max Tokens**: Response length limit (1000-8000 recommended)
+- **Temperature**: Translation creativity (0.3 recommended for accuracy)
+
+**Example - Azure OpenAI:**
+- Endpoint: `https://your-resource.openai.azure.com`
+- API Version: `2024-03-01-preview`
+- Model: `gpt-4` or `gpt-5-chat-2025-08-07`
+- Custom Headers: `{"X-TT-LOGID": ""}` (optional)
 
 #### Language Settings
 - **Source Language**: Auto-detect or specify (English, Chinese, etc.)
@@ -120,23 +147,36 @@ The extension provides bilingual display showing both original and translated co
 
 ```
 WebTranslator/
-├── manifest.json           # Extension manifest (MV3)
+├── manifest.json           # Extension manifest (MV3) with i18n
 ├── src/
 │   ├── background/         # Service worker
 │   │   ├── service-worker.js
-│   │   └── llm-providers/  # LLM provider implementations
-│   │       └── azure-openai.js
+│   │   └── llm-providers/  # Multiple LLM provider implementations
+│   │       ├── base-provider.js     # Base provider class
+│   │       ├── azure-openai.js      # Azure OpenAI
+│   │       ├── doubao.js            # Doubao (豆包)
+│   │       ├── qwen.js              # Qwen (千问)
+│   │       ├── kimi.js              # Kimi (Moonshot AI)
+│   │       └── glm.js               # GLM (智谱AI)
 │   ├── content/           # Content scripts
 │   │   ├── translator.js  # Main translation logic
 │   │   └── styles.css     # Translation styling
 │   ├── popup/             # Extension popup
-│   │   ├── popup.html
-│   │   ├── popup.js
-│   │   └── popup.css
-│   └── options/           # Settings page
-│       ├── options.html
-│       ├── options.js
-│       └── options.css
+│   │   ├── popup.html     # Localized popup interface
+│   │   ├── popup.js       # Popup logic with i18n
+│   │   └── popup.css      # Modern gradient styling
+│   ├── options/           # Settings page
+│   │   ├── options.html   # Dynamic multi-provider config
+│   │   ├── options.js     # Provider management
+│   │   └── options.css    # Settings page styling
+│   └── utils/             # Shared utilities
+│       └── i18n.js        # Internationalization helper
+├── _locales/              # Internationalization
+│   ├── en/                # English locale
+│   ├── zh_CN/             # Chinese Simplified
+│   ├── es/                # Spanish
+│   ├── ja/                # Japanese
+│   └── ko/                # Korean
 ├── icons/                 # Extension icons
 └── docs/                  # Documentation
 ```
@@ -158,10 +198,17 @@ npm run package  # Package for distribution
 ```
 
 #### Adding New LLM Providers
-1. Create provider class in `src/background/llm-providers/`
-2. Implement required methods: `initialize()`, `translate()`
-3. Add provider to settings UI
-4. Update configuration handling
+1. Extend `BaseProvider` class in `src/background/llm-providers/`
+2. Implement required methods: `getName()`, `translate()`, `formatPrompt()`
+3. Add provider to the registry in `service-worker.js`
+4. Add provider schema to `PROVIDER_SCHEMAS` in `options.js`
+5. Update i18n files with provider name translations
+
+#### Model Input Flexibility
+All model names are manually entered rather than dropdown selections, allowing:
+- Immediate support for newly released models
+- Custom or experimental model usage
+- No need to update the extension for new model versions
 
 ### 🌟 Advanced Features
 
@@ -206,18 +253,29 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ### 概述
 
-WebTranslator 是一个强大的 Chrome 浏览器扩展，使用先进的大语言模型(LLM)提供无缝的网页翻译服务。支持多种翻译提供商，包括 Azure OpenAI，并提供智能双语显示和上下文保护功能。
+WebTranslator 是一个强大的 Chrome 浏览器扩展，使用先进的大语言模型(LLM)提供无缝的网页翻译服务。支持包括 Azure OpenAI、豆包、千问、Kimi、GLM 在内的多家中外LLM服务商，提供完整的国际化支持和智能双语显示功能。
+
+### 🆕 最新更新 (v1.0.0)
+
+- **✅ 多服务商支持**: 新增支持4家主流中国LLM服务商
+- **✅ 完整国际化**: 界面现支持5种语言显示
+- **✅ 手动模型输入**: 灵活的模型配置，兼容未来版本
+- **✅ 母语水准翻译**: 优化提示词，输出自然流畅译文
+- **✅ 智能内容识别**: 提升可翻译内容识别准确性
+- **✅ Chrome商店就绪**: 完全符合Chrome网上应用店要求
 
 ### ✨ 功能特性
 
 - **🌐 实时翻译**: 翻译整个网页同时保持布局和格式
-- **🤖 多LLM提供商**: 支持 Azure OpenAI，计划支持更多提供商
-- **📱 双语显示**: 原文和译文并排显示
+- **🤖 多LLM提供商**: 支持 Azure OpenAI、豆包、千问、Kimi、GLM 等多家服务商
+- **🌍 多语言界面**: 支持中文、英文、西班牙语、日语、韩语界面
+- **📱 智能双语显示**: 原文和译文并排显示，格式智能适配
 - **🎯 智能内容识别**: 自动识别并翻译有意义的内容，避免代码块和导航元素
 - **⚡ 渐进式翻译**: 分批渲染翻译以获得更好的用户体验
-- **🔄 还原功能**: 轻松切换回原始内容
-- **🛠️ 灵活配置**: 可自定义的API设置和翻译偏好
-- **🎨 简洁UI**: 现代直观的渐变设计界面
+- **🔄 一键还原**: 轻松切换回原始内容
+- **🛠️ 灵活模型配置**: 手动输入模型名称，兼容最新模型版本
+- **🎨 现代UI**: 简洁直观的渐变设计界面，完全本地化
+- **🔧 母语品质**: 优化翻译提示词，输出自然流畅的母语水平译文
 
 ### 🖼️ 截图展示
 
@@ -271,16 +329,30 @@ WebTranslator 是一个强大的 Chrome 浏览器扩展，使用先进的大语�
 
 ### ⚙️ 配置设置
 
-#### Azure OpenAI 设置
+#### LLM服务商配置
 1. 点击扩展图标并选择"设置"
-2. 选择"Azure OpenAI"作为提供商
-3. 配置以下参数：
-   - **终端点URL**: 您的Azure OpenAI终端点
-   - **API版本**: `2024-03-01-preview`（推荐）
-   - **API密钥**: 您的Azure OpenAI API密钥
-   - **模型**: `gpt-5`或您偏好的模型
-   - **最大令牌**: `5000`（推荐）
-   - **自定义标头**: 可选的JSON格式额外标头
+2. 从下拉菜单选择您的首选服务商：
+   - **Azure OpenAI**: 企业级OpenAI服务
+   - **豆包**: 字节跳动的大语言模型服务
+   - **千问**: 阿里云的大语言模型服务
+   - **Kimi**: 月之暗面的大语言模型服务
+   - **GLM**: 智谱AI的大语言模型服务
+
+#### 配置参数说明
+每个服务商需要特定的配置：
+
+**通用字段：**
+- **端点URL**: 服务商的API端点地址
+- **API密钥**: 您的身份验证密钥
+- **模型**: 模型名称（手动输入以获得最大灵活性）
+- **最大令牌**: 响应长度限制（推荐1000-8000）
+- **温度**: 翻译创造性（推荐0.3以保证准确性）
+
+**示例 - Azure OpenAI：**
+- 端点: `https://your-resource.openai.azure.com`
+- API版本: `2024-03-01-preview`
+- 模型: `gpt-4` 或 `gpt-5-chat-2025-08-07`
+- 自定义标头: `{"X-TT-LOGID": ""}` (可选)
 
 #### 语言设置
 - **源语言**: 自动检测或指定（英语、中文等）

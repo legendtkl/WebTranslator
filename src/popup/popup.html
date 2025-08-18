@@ -3,61 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebTranslator</title>
+  <title data-i18n="extensionName">WebTranslator</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <h1>WebTranslator</h1>
+      <h1 data-i18n="extensionName">WebTranslator</h1>
     </header>
     
     <main class="main">
       <div class="language-selection">
         <div class="language-row">
-          <label for="source-lang">From:</label>
+          <label for="source-lang" data-i18n="from">From:</label>
           <select id="source-lang">
-            <option value="auto">Auto Detect</option>
-            <option value="en">English</option>
-            <option value="zh">Chinese</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="ja">Japanese</option>
-            <option value="ko">Korean</option>
+            <option value="auto" data-i18n="autoDetect">Auto Detect</option>
+            <option value="en" data-i18n="english">English</option>
+            <option value="zh" data-i18n="chinese">Chinese</option>
+            <option value="es" data-i18n="spanish">Spanish</option>
+            <option value="fr" data-i18n="french">French</option>
+            <option value="de" data-i18n="german">German</option>
+            <option value="ja" data-i18n="japanese">Japanese</option>
+            <option value="ko" data-i18n="korean">Korean</option>
           </select>
         </div>
         
         <div class="language-row">
-          <label for="target-lang">To:</label>
+          <label for="target-lang" data-i18n="to">To:</label>
           <select id="target-lang">
-            <option value="zh">Chinese</option>
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="ja">Japanese</option>
-            <option value="ko">Korean</option>
+            <option value="zh" data-i18n="chinese">Chinese</option>
+            <option value="en" data-i18n="english">English</option>
+            <option value="es" data-i18n="spanish">Spanish</option>
+            <option value="fr" data-i18n="french">French</option>
+            <option value="de" data-i18n="german">German</option>
+            <option value="ja" data-i18n="japanese">Japanese</option>
+            <option value="ko" data-i18n="korean">Korean</option>
           </select>
         </div>
       </div>
 
       <div class="actions">
-        <button id="translate-btn" class="primary-btn">
+        <button id="translate-btn" class="primary-btn" data-i18n="translatePage">
           Translate Page
         </button>
         
-        <button id="restore-btn" class="secondary-btn">
+        <button id="restore-btn" class="secondary-btn" data-i18n="restoreOriginal">
           Restore Original
         </button>
         
-        <button id="settings-btn" class="secondary-btn">
+        <button id="settings-btn" class="secondary-btn" data-i18n="settings">
           Settings
         </button>
       </div>
 
       <div id="status" class="status hidden">
-        <div class="status-text">Translating...</div>
+        <div class="status-text" data-i18n="translating">Translating...</div>
         <div class="progress-bar">
           <div class="progress-fill"></div>
         </div>
@@ -65,11 +65,11 @@
 
       <div id="error" class="error hidden">
         <span class="error-text"></span>
-        <button id="retry-btn" class="retry-btn">Retry</button>
+        <button id="retry-btn" class="retry-btn" data-i18n="retry">Retry</button>
       </div>
     </main>
   </div>
   
-  <script src="popup.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
 </html>

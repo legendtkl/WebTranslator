@@ -1,0 +1,146 @@
+{
+  "extensionName": {
+    "message": "WebTranslator",
+    "description": "拡張機能の名前"
+  },
+  "extensionDescription": {
+    "message": "AI言語モデルを使用してWebページを翻訳します。Azure OpenAI、Doubao、Qwen、Kimi、GLMなどに対応。",
+    "description": "拡張機能の説明"
+  },
+  "settingsTitle": {
+    "message": "WebTranslator設定",
+    "description": "設定ページのタイトル"
+  },
+  "providerConfiguration": {
+    "message": "LLMプロバイダー設定",
+    "description": "プロバイダー設定セクションのタイトル"
+  },
+  "activeProvider": {
+    "message": "アクティブプロバイダー：",
+    "description": "アクティブプロバイダー選択のラベル"
+  },
+  "translationSettings": {
+    "message": "翻訳設定",
+    "description": "翻訳設定セクションのタイトル"
+  },
+  "defaultSourceLanguage": {
+    "message": "デフォルト元言語：",
+    "description": "デフォルト元言語のラベル"
+  },
+  "defaultTargetLanguage": {
+    "message": "デフォルト対象言語：",
+    "description": "デフォルト対象言語のラベル"
+  },
+  "autoDetect": {
+    "message": "自動検出",
+    "description": "言語自動検出オプション"
+  },
+  "saveSettings": {
+    "message": "設定を保存",
+    "description": "設定保存ボタンのテキスト"
+  },
+  "testConnection": {
+    "message": "接続テスト",
+    "description": "接続テストボタンのテキスト"
+  },
+  "savingSettings": {
+    "message": "設定を保存中...",
+    "description": "設定保存中のステータスメッセージ"
+  },
+  "settingsSaved": {
+    "message": "設定が正常に保存されました！",
+    "description": "設定保存成功メッセージ"
+  },
+  "connectionTestSuccessful": {
+    "message": "接続テストが成功しました！",
+    "description": "接続テスト成功メッセージ"
+  },
+  "connectionTestFailed": {
+    "message": "接続テストが失敗しました",
+    "description": "接続テスト失敗メッセージ"
+  },
+  "testingConnection": {
+    "message": "接続をテスト中...",
+    "description": "接続テスト中のステータスメッセージ"
+  },
+  "endpointUrl": {
+    "message": "エンドポイントURL",
+    "description": "エンドポイントURLフィールドのラベル"
+  },
+  "apiKey": {
+    "message": "APIキー",
+    "description": "APIキーフィールドのラベル"
+  },
+  "model": {
+    "message": "モデル",
+    "description": "モデルフィールドのラベル"
+  },
+  "maxTokens": {
+    "message": "最大トークン数",
+    "description": "最大トークン数フィールドのラベル"
+  },
+  "temperature": {
+    "message": "テンペラチャー",
+    "description": "テンペラチャーフィールドのラベル"
+  },
+  "apiVersion": {
+    "message": "APIバージョン",
+    "description": "APIバージョンフィールドのラベル"
+  },
+  "customHeaders": {
+    "message": "カスタムヘッダー (JSON)",
+    "description": "カスタムヘッダーフィールドのラベル"
+  },
+  "required": {
+    "message": "*",
+    "description": "必須フィールドインジケーター"
+  },
+  "chinese": {
+    "message": "中国語",
+    "description": "中国語の言語名"
+  },
+  "english": {
+    "message": "英語",
+    "description": "英語の言語名"
+  },
+  "spanish": {
+    "message": "スペイン語",
+    "description": "スペイン語の言語名"
+  },
+  "french": {
+    "message": "フランス語",
+    "description": "フランス語の言語名"
+  },
+  "german": {
+    "message": "ドイツ語",
+    "description": "ドイツ語の言語名"
+  },
+  "japanese": {
+    "message": "日本語",
+    "description": "日本語の言語名"
+  },
+  "korean": {
+    "message": "韓国語",
+    "description": "韓国語の言語名"
+  },
+  "providerAzureOpenAI": {
+    "message": "Azure OpenAI",
+    "description": "Azure OpenAIプロバイダー名"
+  },
+  "providerDoubao": {
+    "message": "Doubao (豆包)",
+    "description": "Doubaoプロバイダー名"
+  },
+  "providerQwen": {
+    "message": "Qwen (千问)",
+    "description": "Qwenプロバイダー名"
+  },
+  "providerKimi": {
+    "message": "Kimi (Moonshot AI)",
+    "description": "Kimiプロバイダー名"
+  },
+  "providerGLM": {
+    "message": "GLM (智谱AI)",
+    "description": "GLMプロバイダー名"
+  }
+}

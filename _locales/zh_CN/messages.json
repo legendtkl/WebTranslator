@@ -1,0 +1,198 @@
+{
+  "extensionName": {
+    "message": "网页翻译器",
+    "description": "扩展名称"
+  },
+  "extensionDescription": {
+    "message": "使用AI语言模型翻译网页。支持Azure OpenAI、豆包、千问、Kimi、GLM等多种服务。",
+    "description": "扩展描述"
+  },
+  "settingsTitle": {
+    "message": "网页翻译器设置",
+    "description": "设置页面标题"
+  },
+  "providerConfiguration": {
+    "message": "LLM服务商配置",
+    "description": "服务商配置部分标题"
+  },
+  "activeProvider": {
+    "message": "当前服务商：",
+    "description": "当前服务商选择器标签"
+  },
+  "translationSettings": {
+    "message": "翻译设置",
+    "description": "翻译设置部分标题"
+  },
+  "defaultSourceLanguage": {
+    "message": "默认源语言：",
+    "description": "默认源语言标签"
+  },
+  "defaultTargetLanguage": {
+    "message": "默认目标语言：",
+    "description": "默认目标语言标签"
+  },
+  "autoDetect": {
+    "message": "自动检测",
+    "description": "自动检测语言选项"
+  },
+  "saveSettings": {
+    "message": "保存设置",
+    "description": "保存设置按钮文本"
+  },
+  "testConnection": {
+    "message": "测试连接",
+    "description": "测试连接按钮文本"
+  },
+  "savingSettings": {
+    "message": "正在保存设置...",
+    "description": "保存设置状态消息"
+  },
+  "settingsSaved": {
+    "message": "设置保存成功！",
+    "description": "设置保存成功消息"
+  },
+  "connectionTestSuccessful": {
+    "message": "连接测试成功！",
+    "description": "连接测试成功消息"
+  },
+  "connectionTestFailed": {
+    "message": "连接测试失败",
+    "description": "连接测试失败消息"
+  },
+  "testingConnection": {
+    "message": "正在测试连接...",
+    "description": "测试连接状态消息"
+  },
+  "endpointUrl": {
+    "message": "端点URL",
+    "description": "端点URL字段标签"
+  },
+  "apiKey": {
+    "message": "API密钥",
+    "description": "API密钥字段标签"
+  },
+  "model": {
+    "message": "模型",
+    "description": "模型字段标签"
+  },
+  "maxTokens": {
+    "message": "最大令牌数",
+    "description": "最大令牌数字段标签"
+  },
+  "temperature": {
+    "message": "温度",
+    "description": "温度字段标签"
+  },
+  "apiVersion": {
+    "message": "API版本",
+    "description": "API版本字段标签"
+  },
+  "customHeaders": {
+    "message": "自定义请求头 (JSON)",
+    "description": "自定义请求头字段标签"
+  },
+  "required": {
+    "message": "*",
+    "description": "必填字段标识"
+  },
+  "translating": {
+    "message": "正在翻译...",
+    "description": "翻译进行中消息"
+  },
+  "translationComplete": {
+    "message": "翻译完成",
+    "description": "翻译完成消息"
+  },
+  "translationError": {
+    "message": "翻译失败",
+    "description": "翻译错误消息"
+  },
+  "noProviderConfigured": {
+    "message": "未配置服务商。请在设置中配置服务商。",
+    "description": "未配置服务商错误消息"
+  },
+  "endpointRequired": {
+    "message": "端点和API密钥为必填项",
+    "description": "必填字段验证消息"
+  },
+  "invalidJson": {
+    "message": "自定义请求头中的JSON格式无效",
+    "description": "无效JSON错误消息"
+  },
+  "chinese": {
+    "message": "中文",
+    "description": "中文语言名称"
+  },
+  "english": {
+    "message": "英语",
+    "description": "英语语言名称"
+  },
+  "spanish": {
+    "message": "西班牙语",
+    "description": "西班牙语语言名称"
+  },
+  "french": {
+    "message": "法语",
+    "description": "法语语言名称"
+  },
+  "german": {
+    "message": "德语",
+    "description": "德语语言名称"
+  },
+  "japanese": {
+    "message": "日语",
+    "description": "日语语言名称"
+  },
+  "korean": {
+    "message": "韩语",
+    "description": "韩语语言名称"
+  },
+  "providerAzureOpenAI": {
+    "message": "Azure OpenAI",
+    "description": "Azure OpenAI服务商名称"
+  },
+  "providerDoubao": {
+    "message": "豆包",
+    "description": "豆包服务商名称"
+  },
+  "providerQwen": {
+    "message": "千问",
+    "description": "千问服务商名称"
+  },
+  "providerKimi": {
+    "message": "Kimi (月之暗面)",
+    "description": "Kimi服务商名称"
+  },
+  "providerGLM": {
+    "message": "GLM (智谱AI)",
+    "description": "GLM服务商名称"
+  },
+  "from": {
+    "message": "从：",
+    "description": "弹窗中源语言标签"
+  },
+  "to": {
+    "message": "到：",
+    "description": "弹窗中目标语言标签"
+  },
+  "translatePage": {
+    "message": "翻译页面",
+    "description": "翻译页面按钮文本"
+  },
+  "restoreOriginal": {
+    "message": "恢复原文",
+    "description": "恢复原始页面按钮文本"
+  },
+  "settings": {
+    "message": "设置",
+    "description": "设置按钮文本"
+  },
+  "retry": {
+    "message": "重试",
+    "description": "重试按钮文本"
+  },
+  "modelInputHint": {
+    "message": "手动输入模型名称以获得最大灵活性",
+    "description": "手动模型输入的提示文本"
+  }
+}

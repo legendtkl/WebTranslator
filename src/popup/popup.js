@@ -1,4 +1,9 @@
+import { initializeI18n, getMessage } from '../utils/i18n.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
+  // Initialize internationalization
+  initializeI18n();
+  
   const sourceLangSelect = document.getElementById('source-lang');
   const targetLangSelect = document.getElementById('target-lang');
   const translateBtn = document.getElementById('translate-btn');
