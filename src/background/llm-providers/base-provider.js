@@ -51,10 +51,46 @@ export class BaseProvider {
   formatPrompt(texts, sourceLang, targetLang) {
     const textList = texts.map((text, i) => `${i + 1}. ${text}`).join('\n');
     
-    return `Translate the following texts from ${sourceLang} to ${targetLang}. 
-Return only the translations, one per line, maintaining the original numbering:
+    // Get target language name for better prompt clarity
+    const targetLangName = this.getLanguageName(targetLang);
+    
+    return `You are a professional web content translator. Translate the following texts from ${sourceLang} to ${targetLang}.
+
+Translation guidelines:
+- Write like a native ${targetLangName} speaker would naturally express these ideas
+- Use shorter, clearer sentences when possible without changing the meaning
+- Maintain the original tone and formality level
+- Keep technical terms accurate but accessible
+- Ensure the translation flows naturally and reads smoothly
+- Preserve any formatting or special characters
+
+Return only the translations, numbered exactly as shown:
 
 ${textList}`;
+  }
+
+  /**
+   * Get readable language name
+   * @param {string} langCode - Language code (e.g., 'zh', 'en')
+   * @returns {string}
+   */
+  getLanguageName(langCode) {
+    const langNames = {
+      'zh': 'Chinese',
+      'en': 'English',
+      'ja': 'Japanese',
+      'ko': 'Korean',
+      'fr': 'French',
+      'de': 'German',
+      'es': 'Spanish',
+      'it': 'Italian',
+      'pt': 'Portuguese',
+      'ru': 'Russian',
+      'ar': 'Arabic',
+      'auto': 'the target language'
+    };
+    
+    return langNames[langCode] || langCode;
   }
 
   /**
