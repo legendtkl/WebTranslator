@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         await new Promise(resolve => setTimeout(resolve, 100));
       } catch (injectionError) {
         // Content script might already be injected, ignore error
-        console.log('Content script injection (might already exist):', injectionError.message);
+        // Content script already exists, continue
       }
 
       // Send message to content script with retry logic
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         await new Promise(resolve => setTimeout(resolve, 100));
       } catch (injectionError) {
-        console.log('Content script injection (might already exist):', injectionError.message);
+        // Content script already exists, continue
       }
 
       // Send restore message to content script

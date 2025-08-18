@@ -107,14 +107,10 @@ ${textList}`;
       return new Array(expectedCount).fill(null);
     }
 
-    console.log('BaseProvider: Raw response preview:', response.substring(0, 300) + '...');
-    
     const translations = [];
     
     // Split by numbered patterns (1. 2. 3. etc.) to handle multi-line translations
     const numberedSections = response.split(/(?=^\d+\.\s)/m).filter(section => section.trim());
-    
-    console.log('BaseProvider: Found numbered sections:', numberedSections.length, 'expected:', expectedCount);
     
     for (let i = 0; i < expectedCount; i++) {
       let translation = null;
@@ -140,7 +136,6 @@ ${textList}`;
       translations.push(translation);
     }
     
-    console.log('BaseProvider: Parsed translations:', translations.length, 'valid:', translations.filter(t => t !== null).length);
     
     // If too many translations failed, it might indicate a systematic issue
     const validCount = translations.filter(t => t !== null).length;

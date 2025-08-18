@@ -104,33 +104,14 @@ export class AzureOpenAIProvider extends BaseProvider {
       }
     });
 
-    console.log('Azure OpenAI API Debug Info:', {
-      url: url,
-      endpoint: this.endpoint,
-      apiVersion: this.apiVersion,
-      model: this.model,
-      maxTokens: this.maxTokens,
-      apiKeyPrefix: this.apiKey ? this.apiKey.substring(0, 8) + '...' : 'NOT_SET',
-      apiKeyLength: this.apiKey ? this.apiKey.length : 0,
-      customHeaders: this.customHeaders,
-      finalHeaders: debugHeaders,
-      requestBodySample: {
-        model: requestBody.model,
-        messageCount: requestBody.messages.length,
-        promptLength: prompt.length
-      }
-    });
 
     try {
-      console.log('Making API request to:', url);
       const response = await fetch(url, {
         method: 'POST',
         headers,
         body: JSON.stringify(requestBody)
       });
 
-      console.log('API Response status:', response.status);
-      console.log('API Response headers:', Object.fromEntries(response.headers.entries()));
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -139,11 +120,6 @@ export class AzureOpenAIProvider extends BaseProvider {
       }
 
       const data = await response.json();
-      console.log('API Success Response:', {
-        hasChoices: !!data.choices,
-        choicesLength: data.choices?.length,
-        firstChoiceContent: data.choices?.[0]?.message?.content?.substring(0, 100) + '...'
-      });
       
       const content = data.choices?.[0]?.message?.content || '';
       

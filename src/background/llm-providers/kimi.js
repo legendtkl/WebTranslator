@@ -63,13 +63,6 @@ export class KimiProvider extends BaseProvider {
         : headers[key];
     });
 
-    console.log('Kimi API Debug Info:', {
-      url: url,
-      headers: debugHeaders,
-      model: this.model,
-      textCount: texts.length,
-      maxTokens: this.maxTokens
-    });
 
     try {
       const response = await fetch(url, {
@@ -78,7 +71,6 @@ export class KimiProvider extends BaseProvider {
         body: JSON.stringify(requestBody)
       });
 
-      console.log('Kimi API Response status:', response.status);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -91,11 +83,6 @@ export class KimiProvider extends BaseProvider {
       }
 
       const data = await response.json();
-      console.log('Kimi API Success Response:', {
-        hasChoices: !!data.choices,
-        choicesLength: data.choices?.length,
-        firstChoiceContent: data.choices?.[0]?.message?.content?.substring(0, 100) + '...'
-      });
 
       if (!data.choices || !data.choices[0] || !data.choices[0].message) {
         throw new Error('Invalid response format from Kimi API');

@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         await chrome.runtime.sendMessage({ action: 'reinitializeProvider' });
       } catch (error) {
-        console.log('Background script not ready, will initialize on next startup');
+        // Background script not ready, will initialize on next startup
       }
       
     } catch (error) {
