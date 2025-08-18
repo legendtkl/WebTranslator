@@ -94,12 +94,21 @@ WebTranslator/
    - 用户友好的错误提示
    - 扩展注入失败自动重试
 
+5. **LLM Prompt 优化**：
+   - 专业翻译角色定位
+   - Native speaker质量要求
+   - 短句优化指导
+   - 多语言支持（11种语言）
+   - 保持语调和技术术语准确性
+   - 格式保持和流畅性要求
+
 ### 调试解决的关键问题
 1. **元素提取过于严格**：修改过滤逻辑，从只找到1个元素提升到多个
 2. **中文翻译破坏内联HTML**：从文本节点级改为元素级翻译
 3. **Azure API认证问题**：支持自定义endpoint和api-key header
 4. **导航菜单被翻译**：增加导航元素检测和排除逻辑
 5. **翻译效果不明显**：优化双语显示格式和样式
+6. **翻译质量提升**：优化LLM prompt以获得更自然的native speaker质量翻译
 
 ## 下一步工作
 
@@ -174,6 +183,32 @@ npm run package  # 打包扩展
   }
 }
 ```
+
+### 优化后的翻译 Prompt
+```
+You are a professional web content translator. Translate the following texts from en to zh.
+
+Translation guidelines:
+- Write like a native Chinese speaker would naturally express these ideas
+- Use shorter, clearer sentences when possible without changing the meaning
+- Maintain the original tone and formality level
+- Keep technical terms accurate but accessible
+- Ensure the translation flows naturally and reads smoothly
+- Preserve any formatting or special characters
+
+Return only the translations, numbered exactly as shown:
+
+1. GPT-5, our newest flagship model, represents a substantial leap forward...
+2. While we trust it will perform excellently "out of the box"...
+```
+
+**Prompt 改进要点**：
+- 🎯 专业角色定位：明确翻译者身份
+- 🌟 Native speaker质量：强调自然表达
+- ✂️ 短句优化：在不改变意思的前提下使用短句
+- 🎨 语调保持：维持原文的正式程度和风格
+- 🔧 术语平衡：技术准确性与可读性并重
+- 📝 格式保持：保持原文格式和特殊字符
 
 ## 注意事项
 1. MVP 版本优先支持 Azure OpenAI
