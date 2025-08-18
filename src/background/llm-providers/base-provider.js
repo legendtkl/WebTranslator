@@ -63,6 +63,8 @@ Translation guidelines:
 - Keep technical terms accurate but accessible
 - Ensure the translation flows naturally and reads smoothly
 - Preserve any formatting or special characters
+- Translate each text as a complete, independent unit
+- Maintain internal consistency within each text
 
 Return only the translations, numbered exactly as shown:
 
@@ -100,14 +102,50 @@ ${textList}`;
    * @returns {string[]}
    */
   parseResponse(response, expectedCount) {
-    const lines = response.trim().split('\n');
+    if (!response || !response.trim()) {
+      console.error('BaseProvider: Empty response received');
+      return new Array(expectedCount).fill(null);
+    }
+
+    console.log('BaseProvider: Raw response preview:', response.substring(0, 300) + '...');
+    
     const translations = [];
     
+    // Split by numbered patterns (1. 2. 3. etc.) to handle multi-line translations
+    const numberedSections = response.split(/(?=^\d+\.\s)/m).filter(section => section.trim());
+    
+    console.log('BaseProvider: Found numbered sections:', numberedSections.length, 'expected:', expectedCount);
+    
     for (let i = 0; i < expectedCount; i++) {
-      const line = lines[i] || '';
-      // Remove numbering if present (1. 2. etc.)
-      const cleaned = line.replace(/^\d+\.\s*/, '').trim();
-      translations.push(cleaned || `[Translation ${i + 1} failed]`);
+      let translation = null;
+      
+      if (i < numberedSections.length) {
+        // Remove the number prefix and clean up
+        const section = numberedSections[i].replace(/^\d+\.\s*/, '').trim();
+        
+        if (section && section.length > 0) {
+          // Additional check: ensure the translation doesn't look like an error message
+          if (!section.match(/translation.*failed|error|failed/i)) {
+            translation = section;
+          } else {
+            console.warn(`BaseProvider: Detected error-like response at index ${i}:`, section.substring(0, 100) + '...');
+          }
+        }
+      }
+      
+      if (!translation) {
+        console.warn(`BaseProvider: No valid translation found at index ${i}`);
+      }
+      
+      translations.push(translation);
+    }
+    
+    console.log('BaseProvider: Parsed translations:', translations.length, 'valid:', translations.filter(t => t !== null).length);
+    
+    // If too many translations failed, it might indicate a systematic issue
+    const validCount = translations.filter(t => t !== null).length;
+    if (validCount === 0 && expectedCount > 0) {
+      console.error('BaseProvider: All translations failed, response might be malformed');
     }
     
     return translations;

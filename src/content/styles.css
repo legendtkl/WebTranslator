@@ -30,6 +30,11 @@
   opacity: 0.7;
 }
 
+.web-translator-skipped {
+  /* Subtle indicator for skipped translations */
+  opacity: 0.9;
+}
+
 /* Translation text styles */
 .web-translator-heading-translation {
   color: #666;
