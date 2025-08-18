@@ -438,8 +438,41 @@ Return only the translations, numbered exactly as shown:
 - **专业性提升**: 生产环境下更加专业的日志输出
 - **调试效率**: 关键错误更容易识别和定位
 
+## 最新改动（2025-08-18 - 国际化优化）
+
+### 🌍 扩展名称国际化统一（v1.0.3）
+1. **统一扩展名称显示**：
+   - 问题：在中文浏览器环境下，扩展显示为"网页翻译器"，不利于品牌统一
+   - 解决：修改中文locale文件，确保所有语言环境下扩展名称都显示为"WebTranslator"
+   - 影响文件：`_locales/zh_CN/messages.json`
+   - 具体修改：`"message": "网页翻译器"` → `"message": "WebTranslator"`
+
+2. **保持描述多语言化**：
+   - ✅ 扩展名称：统一为英文"WebTranslator"
+   - ✅ 扩展描述：保持各语言本地化翻译
+   - ✅ 界面元素：保持多语言支持，为不同用户提供最佳体验
+
+3. **品牌一致性提升**：
+   - 所有语言环境下都显示统一的英文品牌名称
+   - 维持了良好的国际化用户体验
+   - Chrome Web Store中显示统一的扩展名称
+
+### 📊 多语言状态确认
+| 语言 | extensionName | extensionDescription |
+|------|---------------|---------------------|
+| English | WebTranslator | Translate web pages using AI... |
+| 中文 | WebTranslator | 使用AI语言模型翻译网页... |
+| 日本語 | WebTranslator | AI言語モデルを使用してWebページ... |
+| 한국어 | WebTranslator | AI 언어 모델을 사용하여... |
+| Español | WebTranslator | Traduce páginas web usando... |
+
+### 🎯 用户体验优化
+- **品牌识别度**：统一的扩展名称提升品牌识别
+- **国际化平衡**：名称统一，描述本地化的最佳实践
+- **Chrome Store展示**：确保在应用商店中显示一致的英文名称
+
 ---
 *最后更新：2025-08-18*
-*状态：🎉 Production Ready v1.0.2 - 代码质量优化完成*
-*改动：DEBUG日志清理，生产环境代码更加简洁专业*
+*状态：🎉 Production Ready v1.0.3 - 国际化品牌统一完成*
+*改动：扩展名称全语言统一为"WebTranslator"，描述保持多语言化*
 *下一步：发布到Chrome Web Store并收集用户反馈*
